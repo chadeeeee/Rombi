@@ -24,6 +24,7 @@ def recognize_speech(file):
 
 @router.message(Command("voice"))
 async def recognize_voice_command(message: Message, bot: Bot):
+    await message.answer("Команда не працює. Причина: тех. роботи")
     if message.reply_to_message and message.reply_to_message.voice:
         file_info = await bot.get_file(message.reply_to_message.voice.file_id)
         voice_file = io.BytesIO()
